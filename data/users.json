@@ -1,6 +1,25 @@
 {
-  "user1": {
-    "userID": 1,
-    "UserName": "MMM"
-  }
+  "users": [
+    {
+      "id": 1,
+      "UserName": "MMM"
+    },
+    {
+      "id": 2,
+      "UserName": "Lido"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "subject": "Математика",
+      "class": 5
+    },
+    {
+      "id": 2,
+      "subject": "Русский язык",
+      "class": 8
+
+    }
+  ]
 }

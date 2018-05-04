@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     onSignUp() {
-      axios.post('http://localhost:3000/db', { user2: { userID: 2, UserName: 'TTT' } })
+      axios.post('http://localhost:3000/users', { UserName: 'TTT' })
         .then((response) => {
           console.log(response);
         })
