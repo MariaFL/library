@@ -10,21 +10,49 @@
 <script>
 import axios from 'axios';
 
+async function getJsonData() {
+  const jsonUsers = await axios.get('http://localhost:3000/users');
+  return jsonUsers;
+}
+
 export default {
   name: 'HelloWorld',
   data() {
     return {
       user: '',
+      users: [],
     };
   },
   methods: {
     onSignUp() {
-      axios.post('http://localhost:3000/users', { UserName: 'TTT' })
-        .then((response) => {
+      getJsonData()
+        .then(function (response) {
+          /* eslint-disable */
           console.log(response);
+          /* eslint-enable */
+          let valueUser = {};
+          for (valueUser of response.data) {
+            if (valueUser.UserName === this.user) {
+              console.log('такой пользователь уже есть');
+            } else {
+              axios.post('http://localhost:3000/users', { UserName: this.user })
+                .then((responsePost) => {
+                  /* eslint-disable */
+                  console.log(responsePost);
+                  /* eslint-enable */
+                })
+                .catch((error) => {
+                  /* eslint-disable */
+                  console.log(error);
+                  /* eslint-enable */
+                });
+            }
+          }
         })
         .catch((error) => {
+          /* eslint-disable */
           console.log(error);
+          /* eslint-enable */
         });
     },
   },
