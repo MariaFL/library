@@ -8,26 +8,27 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      user: ''
-    }
+      user: '',
+    };
   },
   methods: {
-    onSignUp: function () {
-      axios.post('http://localhost:3000/db', {user2: { userID: 2, UserName: 'TTT' }}).then(function (response) {
-        console.log(response)
-      })
-        .catch(function (error) {
-          console.log(error)
+    onSignUp() {
+      axios.post('http://localhost:3000/db', { user2: { userID: 2, UserName: 'TTT' } })
+        .then((response) => {
+          console.log(response);
         })
-    }
-  }
-}
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
