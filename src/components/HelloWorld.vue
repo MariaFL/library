@@ -30,28 +30,26 @@ export default {
           /* eslint-disable */
           console.log(response);
           /* eslint-enable */
-          let valueUser = {};
-          for (valueUser of response.data) {
-            if (valueUser.UserName === this.user) {
-              console.log('такой пользователь уже есть');
-            } else {
-              axios.post('http://localhost:3000/users', { UserName: this.user })
-                .then((responsePost) => {
-                  /* eslint-disable */
-                  console.log(responsePost);
-                  /* eslint-enable */
-                })
-                .catch((error) => {
-                  /* eslint-disable */
-                  console.log(error);
-                  /* eslint-enable */
-                });
-            }
+          if (response.data.find(this.user) !== undefined) {
+            console.log('такой пользователь уже есть');
+          } else {
+            axios.post('http://localhost:3000/users', { UserName: this.user })
+              .then((responsePost) => {
+                /* eslint-disable */
+                console.log(responsePost);
+                /* eslint-enable */
+              })
+              .catch((error) => {
+                /* eslint-disable */
+                console.log(error);
+                /* eslint-enable */
+              });
           }
         })
         .catch((error) => {
           /* eslint-disable */
-          console.log(error);
+          new Error(error);
+          console.log(error.message);
           /* eslint-enable */
         });
     },

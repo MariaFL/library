@@ -1,5 +1,4 @@
 // https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
   parserOptions: {
@@ -21,6 +20,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    // windows linebreaks when not in production environment
+    "linebreak-style": ["error", process.env.NODE_ENV === 'prod' ? "unix" : "windows"],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
