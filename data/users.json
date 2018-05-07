@@ -1,12 +1,8 @@
 {
   "users": [
     {
-      "id": 1,
-      "UserName": "MMM"
-    },
-    {
-      "id": 2,
-      "UserName": "Lido"
+      "name": "Masha",
+      "id": 1
     }
   ],
   "books": [
@@ -19,7 +15,6 @@
       "id": 2,
       "subject": "Русский язык",
       "class": 8
-
     }
   ]
 }
