@@ -9,12 +9,14 @@
     {
       "id": 1,
       "subject": "Математика",
-      "class": 5
+      "class": 5,
+      "userID": 1
     },
     {
       "id": 2,
       "subject": "Русский язык",
-      "class": 8
+      "class": 8,
+      "userID": 1
     }
   ]
 }

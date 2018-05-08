@@ -1,17 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import signUp from '../components/SignUp.vue';
+import Vuex from 'vuex'
+import config from './config';
 
 Vue.use(Router);
+Vue.use(Vuex);
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'SignUp',
-      component: signUp,
-    },
+const router = new Router(config);
 
-  ],
-
-});
+export default router;
