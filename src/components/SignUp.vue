@@ -9,6 +9,7 @@
 
 <script>
 import axios from 'axios';
+import store from '../store';
 
 export default {
   name: 'SignUp',
@@ -30,6 +31,7 @@ export default {
         axios.post('http://localhost:3000/users', { name: this.user })
           .then((responsePost) => {
             console.log(responsePost);
+            store.commit('setUser', responsePost.data.id);
           })
           .catch((error) => {
             console.log(error);

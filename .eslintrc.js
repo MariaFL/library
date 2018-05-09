@@ -21,7 +21,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     // windows linebreaks when not in production environment
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", "windows"],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
