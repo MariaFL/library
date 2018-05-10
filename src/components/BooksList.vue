@@ -29,22 +29,22 @@ import store from '../store/index';
 export default {
   data() {
     return {
-      books: [],
+      books: []
     };
   },
   computed: {
     user() {
       return store.state.user;
-    },
+    }
   },
   methods: {
     async getBooks() {
       this.books = (await axios.get('http://localhost:3000/books')).data;
-    },
+    }
   },
   mounted() {
     this.getBooks();
-  },
+  }
 };
 </script>
 

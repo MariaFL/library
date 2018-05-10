@@ -6,9 +6,9 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    user: null,
+    user: null
   },
-  mutations,
+  mutations
 });
 
 export default store;

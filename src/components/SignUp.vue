@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       user: null,
-      users: [],
+      users: []
     };
   },
   methods: {
@@ -45,8 +45,8 @@ export default {
       } else {
         console.log('Введите не пустое имя');
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

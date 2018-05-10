@@ -5,11 +5,11 @@ export default [
   {
     path: '/SignUp',
     name: 'SignUp',
-    component: SignUp,
+    component: SignUp
   },
   {
     path: '/BooksList',
     name: 'BooksList',
-    component: BooksList,
-  },
+    component: BooksList
+  }
 ];
