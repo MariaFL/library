@@ -1,22 +1,41 @@
 <template>
     <div class="booksList">
-        <ul>
-            <li v-for="book in books" :key="book.class">
-                {{ book }}
-            </li>
-        </ul>
+        <v-layout row wrap>
+            <v-flex xs12 sm3 offset-xs0 offset-lg2 v-for="book in books" :key="book.class">
+                <v-card>
+                    <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
+                    </v-card-media>
+                    <v-card-title primary-title>
+                        <div>
+                            <h3 class="headline">{{book.subject}}</h3>
+                            <h3 class="headline">{{book.class}} класс</h3>
+                        </div>
+                    </v-card-title>
+                    <v-card-actions v-if="user === book.userID">
+                        <v-btn flat color="orange">Редактировать</v-btn>
+                        <v-btn flat color="orange">Удалить</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-flex>
+        </v-layout>
     </div>
 </template>
 
 <script>
 
 import axios from 'axios';
+import store from '../store/index';
 
 export default {
   data() {
     return {
       books: [],
     };
+  },
+  computed: {
+    user() {
+      return store.state.user;
+    },
   },
   methods: {
     async getBooks() {

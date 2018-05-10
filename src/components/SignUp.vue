@@ -1,15 +1,21 @@
 <template>
     <div class="panel-signUp">
         <form>
-            <input type="text" id="input-email" v-model="user">
-            <button @click.prevent="onSignUp">Зарегестрироваться</button>
+            <v-text-field
+                type="text"
+                v-model="user"
+                :counter="10"
+                label="Name"
+                required></v-text-field>
+            <v-btn @click.prevent="onSignUp">Зарегестрироваться</v-btn>
         </form>
+        <router-link to="/BooksList">link on books</router-link>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import store from '../store';
+import store from '../store/index';
 
 export default {
   name: 'SignUp',
@@ -31,7 +37,7 @@ export default {
         axios.post('http://localhost:3000/users', { name: this.user })
           .then((responsePost) => {
             console.log(responsePost);
-            store.commit('setUser', responsePost.data.id);
+            store.commit('USER_REGISTRATION', responsePost.data.id);
           })
           .catch((error) => {
             console.log(error);
@@ -44,5 +50,5 @@ export default {
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 </style>

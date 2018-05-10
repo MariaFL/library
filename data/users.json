@@ -1,24 +1,8 @@
 {
   "users": [
     {
-      "name": "Masha",
+      "name": "Road",
       "id": 1
-    },
-    {
-      "name": "Maria",
-      "id": 2
-    },
-    {
-      "name": "User",
-      "id": 3
-    },
-    {
-      "name": "Anonim",
-      "id": 4
-    },
-    {
-      "name": "DrWhy",
-      "id": 5
     }
   ],
   "books": [
