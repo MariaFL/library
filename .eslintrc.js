@@ -26,6 +26,8 @@ module.exports = {
   // add your custom rules here
   rules: {
     "comma-dangle": ["error", "never"],
+    // windows linebreaks when not in production environment
+    "linebreak-style": ["error", "windows"],
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       js: 'never',
