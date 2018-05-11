@@ -33,9 +33,11 @@
         <span class="hidden-sm-and-down">Ur's Libr</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>person</v-icon>
-      </v-btn>
+      <router-link to="/sign-in">
+        <v-btn icon>
+          <v-icon>person</v-icon>
+        </v-btn>
+      </router-link>
       <router-link to="/sign-up">
         <v-btn icon>
           <v-icon>person_add</v-icon>
