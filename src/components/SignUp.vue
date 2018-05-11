@@ -9,7 +9,6 @@
                 required></v-text-field>
             <v-btn @click.prevent="onSignUp">Зарегестрироваться</v-btn>
         </form>
-        <router-link to="/BooksList">link on books</router-link>
     </div>
 </template>
 

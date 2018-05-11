@@ -3,12 +3,12 @@ import BooksList from '../components/BooksList.vue';
 
 export default [
   {
-    path: '/SignUp',
+    path: '/sign-up',
     name: 'SignUp',
     component: SignUp
   },
   {
-    path: '/BooksList',
+    path: '/books-list',
     name: 'BooksList',
     component: BooksList
   }
