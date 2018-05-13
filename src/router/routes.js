@@ -1,6 +1,7 @@
 import SignIn from '../components/SignIn.vue';
 import SignUp from '../components/SignUp.vue';
 import BooksList from '../components/BooksList.vue';
+import BookAdd from '../components/BookAdd.vue';
 
 export default [
   {
@@ -17,5 +18,10 @@ export default [
     path: '/books-list',
     name: 'BooksList',
     component: BooksList
+  },
+  {
+    path: '/book-add',
+    name: 'BookAdd',
+    component: BookAdd
   }
 ];

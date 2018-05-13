@@ -1,5 +1,13 @@
 {
   "users": [
+    {
+      "name": "Maria",
+      "id": 1
+    },
+    {
+      "name": "nick",
+      "id": 2
+    }
   ],
   "books": [
     {
@@ -13,6 +21,12 @@
       "subject": "Русский язык",
       "class": 8,
       "userID": 1
+    },
+    {
+      "subject": "Литература",
+      "class": "11",
+      "userID": 3,
+      "id": 3
     }
   ]
 }
