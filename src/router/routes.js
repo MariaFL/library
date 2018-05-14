@@ -2,26 +2,32 @@ import SignIn from '../components/SignIn.vue';
 import SignUp from '../components/SignUp.vue';
 import BooksList from '../components/BooksList.vue';
 import BookAdd from '../components/BookAdd.vue';
+import BookPage from '../components/BookPage.vue';
 
 export default [
   {
     path: '/sign-in',
-    name: 'SignIn',
+    name: 'signIn',
     component: SignIn
   },
   {
     path: '/sign-up',
-    name: 'SignUp',
+    name: 'signUp',
     component: SignUp
   },
   {
     path: '/books-list',
-    name: 'BooksList',
+    name: 'booksList',
     component: BooksList
   },
   {
     path: '/book-add',
-    name: 'BookAdd',
+    name: 'bookAdd',
     component: BookAdd
+  },
+  {
+    path: '/book/:id',
+    name: 'bookPage',
+    component: BookPage
   }
 ];

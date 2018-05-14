@@ -33,12 +33,12 @@
         <span class="hidden-sm-and-down">Ur's Libr</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <router-link to="/sign-in">
+      <router-link :to="{ name: 'signIn' }">
         <v-btn icon>
           <v-icon>person</v-icon>
         </v-btn>
       </router-link>
-      <router-link to="/sign-up">
+      <router-link :to="{ name: 'signUp' }">
         <v-btn icon>
           <v-icon>person_add</v-icon>
         </v-btn>
@@ -47,7 +47,7 @@
     <v-content>
       <router-view/>
     </v-content>
-    <router-link to="/book-add" v-if="user !== null">
+    <router-link :to="{ name: 'bookAdd' }" v-if="user !== null">
       <v-btn
               fab
               bottom
@@ -74,7 +74,7 @@ export default {
       {
         icon: 'library_books',
         text: 'Books',
-        to: 'books-list'
+        to: { name: 'booksList' }
       }
     ]
   }),

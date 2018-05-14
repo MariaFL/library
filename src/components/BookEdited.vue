@@ -12,7 +12,7 @@
                     :counter="10"
                     label="Class"
                     required></v-text-field>
-            <v-btn @click.prevent="newBook">Добавить книгу</v-btn>
+            <v-btn @click.prevent="editBook">Сохранить изменения</v-btn>
         </form>
     </div>
 </template>
@@ -22,30 +22,14 @@ import axios from 'axios';
 import store from '../store/index';
 
 export default {
-  name: 'BookAdd',
+  name: 'BookEdited',
   data() {
     return {
-      subject_book: null,
-      class_book: null
     };
   },
   computed: {
-    userID() {
-      return store.state.user;
-    }
   },
   methods: {
-    async newBook() {
-      /* eslint-disable no-console */
-      axios.post('http://localhost:3000/books', { subject: this.subject_book, class: this.class_book, userID: this.userID })
-        .then((responsePost) => {
-          console.log(responsePost);
-          this.$router.push('books-list');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
   }
 };
 </script>
