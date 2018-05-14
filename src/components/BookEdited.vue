@@ -3,12 +3,12 @@
         <form>
             <v-text-field
                     type="text"
-                    v-model="subject_book"
+                    v-model="book.subject"
                     label="Subject"
                     required></v-text-field>
             <v-text-field
                     type="number"
-                    v-model="class_book"
+                    v-model="book.class"
                     :counter="10"
                     label="Class"
                     required></v-text-field>
@@ -19,17 +19,36 @@
 
 <script>
 import axios from 'axios';
-import store from '../store/index';
 
 export default {
   name: 'BookEdited',
   data() {
     return {
+      book: {}
     };
   },
   computed: {
   },
   methods: {
+    async getBook() {
+      const id = this.$route.params.id;
+      this.book = (await axios.get(`http://localhost:3000/books/${id}`)).data;
+    },
+    async editBook() {
+      const id = this.$route.params.id;
+      /* eslint-disable no-console */
+      axios.put(`http://localhost:3000/books/${id}`, { subject: this.book.subject, class: this.book.class, userID: this.book.userID })
+        .then((responsePost) => {
+          console.log(responsePost);
+          this.$router.push('/books-list');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  },
+  mounted() {
+    this.getBook();
   }
 };
 </script>

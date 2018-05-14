@@ -1,7 +1,7 @@
 <template>
     <div class="booksList">
         <v-layout row wrap>
-            <v-flex xs12 sm3 offset-xs0 offset-lg2 mt-5 v-for="book in books" :key="book.class">
+            <v-flex xs12 sm3 offset-xs0 offset-lg2 mt-5 v-for="book in books" :key="book.id">
                 <v-card>
                     <router-link :to="`/book/${book.id}`" :settings="`${book.id}`">
                         <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
@@ -14,8 +14,11 @@
                         </v-card-title>
                     </router-link>
                     <v-card-actions v-if="user === book.userID">
-                        <v-btn flat color="orange">Редактировать</v-btn>
-                        <v-btn flat color="orange">Удалить</v-btn>
+                        <router-link :to="`/book-edit/${book.id}`">
+                            <v-btn flat color="orange">Редактировать</v-btn>
+                        </router-link>
+                            <v-btn flat color="orange"
+                                   @click.prevent="deleteBook(book.id)">Удалить</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -37,14 +40,22 @@ export default {
   computed: {
     user() {
       return store.state.user;
-    },
-    linkTo(bookId) {
-      return `/book/${bookId}`;
     }
   },
   methods: {
     async getBooks() {
       this.books = (await axios.get('http://localhost:3000/books')).data;
+    },
+    async deleteBook(id) {
+      /* eslint-disable no-console */
+      await axios.delete(`http://localhost:3000/books/${id}`)
+        .then((responsePost) => {
+          console.log(responsePost);
+          this.getBooks();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   },
   mounted() {

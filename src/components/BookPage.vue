@@ -1,6 +1,5 @@
 <template>
     <div class="booksList">
-        Привет!
         <v-card>
             <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">
             </v-card-media>
@@ -10,9 +9,11 @@
                     <h3 class="headline">{{book.class}} класс</h3>
                 </div>
             </v-card-title>
-            <v-card-actions v-if="user === book.userID">
-                <v-btn flat color="orange">Редактировать</v-btn>
-                <v-btn flat color="orange">Удалить</v-btn>
+            <v-card-actions v-if="userID === book.userID">
+                <router-link :to="`/book-edit/${book.id}`">
+                    <v-btn flat color="orange">Редактировать</v-btn>
+                </router-link>
+                <v-btn flat color="orange" @click.prevent="deleteBook(book.id)">Удалить</v-btn>
             </v-card-actions>
         </v-card>
     </div>
@@ -23,9 +24,10 @@ import axios from 'axios';
 import store from '../store/index';
 
 export default {
-  props: ['bookId'],
   data() {
-    return {};
+    return {
+      book: {}
+    };
   },
   computed: {
     userID() {
@@ -34,7 +36,19 @@ export default {
   },
   methods: {
     async getBook() {
-      this.book = (await axios.get(`http://localhost:3000/books/${this.bookId}`)).data;
+      const id = this.$route.params.id;
+      this.book = (await axios.get(`http://localhost:3000/books/${id}`)).data;
+    },
+    async deleteBook(id) {
+      /* eslint-disable no-console */
+      await axios.delete(`http://localhost:3000/books/${id}`)
+        .then((responsePost) => {
+          console.log(responsePost);
+          this.$router.push('/books-list');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   },
   mounted() {

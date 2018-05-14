@@ -3,6 +3,7 @@ import SignUp from '../components/SignUp.vue';
 import BooksList from '../components/BooksList.vue';
 import BookAdd from '../components/BookAdd.vue';
 import BookPage from '../components/BookPage.vue';
+import BookEdited from '../components/BookEdited.vue';
 
 export default [
   {
@@ -29,5 +30,10 @@ export default [
     path: '/book/:id',
     name: 'bookPage',
     component: BookPage
+  },
+  {
+    path: '/book-edit/:id',
+    name: 'bookEdited',
+    component: BookEdited
   }
 ];
