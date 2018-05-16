@@ -8,32 +8,32 @@ import BookEdited from '../components/BookEdited.vue';
 export default [
   {
     path: '/sign-in',
-    name: 'signIn',
+    name: 'SignIn',
     component: SignIn
   },
   {
     path: '/sign-up',
-    name: 'signUp',
+    name: 'SignUp',
     component: SignUp
   },
   {
     path: '/books-list',
-    name: 'booksList',
+    name: 'BooksList',
     component: BooksList
   },
   {
     path: '/book-add',
-    name: 'bookAdd',
+    name: 'BookAdd',
     component: BookAdd
   },
   {
     path: '/book/:id',
-    name: 'bookPage',
+    name: 'BookPage',
     component: BookPage
   },
   {
     path: '/book-edit/:id',
-    name: 'bookEdited',
+    name: 'BookEdited',
     component: BookEdited
   }
 ];

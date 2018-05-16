@@ -24,11 +24,9 @@ import axios from 'axios';
 import store from '../store/index';
 
 export default {
-  data() {
-    return {
-      book: {}
-    };
-  },
+  data: () => ({
+    book: {}
+  }),
   computed: {
     userID() {
       return store.state.user;

@@ -3,10 +3,11 @@
         <v-form>
             <v-text-field
                     type="text"
+                    label="Name"
+                    required
                     v-model="user"
                     :rules="nameRules"
-                    label="Name"
-                    required></v-text-field>
+            ></v-text-field>
             <v-btn @click.prevent="onSignIn">Войти</v-btn>
         </v-form>
     </div>
@@ -18,15 +19,13 @@ import store from '../store/index';
 
 export default {
   name: 'SignIn',
-  data() {
-    return {
-      user: null,
-      users: [],
-      nameRules: [
-        v => !!v || 'Name is required'
-      ]
-    };
-  },
+  data: () => ({
+    user: null,
+    users: [],
+    nameRules: [
+      v => !!v || 'Name is required'
+    ]
+  }),
   computed: {
   },
   methods: {

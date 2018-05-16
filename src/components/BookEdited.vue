@@ -3,15 +3,17 @@
         <form>
             <v-text-field
                     type="text"
-                    v-model="book.subject"
                     label="Subject"
-                    required></v-text-field>
+                    required
+                    v-model="book.subject"
+            ></v-text-field>
             <v-text-field
                     type="number"
+                    label="Class"
+                    required
                     v-model="book.class"
                     :counter="10"
-                    label="Class"
-                    required></v-text-field>
+            ></v-text-field>
             <v-btn @click.prevent="editBook">Сохранить изменения</v-btn>
         </form>
     </div>
@@ -22,11 +24,9 @@ import axios from 'axios';
 
 export default {
   name: 'BookEdited',
-  data() {
-    return {
-      book: {}
-    };
-  },
+  data: () => ({
+    book: {}
+  }),
   computed: {
   },
   methods: {

@@ -32,11 +32,9 @@ import axios from 'axios';
 import store from '../store/index';
 
 export default {
-  data() {
-    return {
-      books: []
-    };
-  },
+  data: () => ({
+    books: []
+  }),
   computed: {
     user() {
       return store.state.user;

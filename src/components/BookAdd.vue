@@ -3,15 +3,17 @@
         <form>
             <v-text-field
                     type="text"
-                    v-model="subject_book"
                     label="Subject"
-                    required></v-text-field>
+                    required
+                    v-model="subject_book"
+            ></v-text-field>
             <v-text-field
                     type="number"
+                    label="Class"
+                    required
                     v-model="class_book"
                     :counter="10"
-                    label="Class"
-                    required></v-text-field>
+            ></v-text-field>
             <v-btn @click.prevent="newBook">Добавить книгу</v-btn>
         </form>
     </div>
@@ -23,12 +25,10 @@ import store from '../store/index';
 
 export default {
   name: 'BookAdd',
-  data() {
-    return {
-      subject_book: null,
-      class_book: null
-    };
-  },
+  data: () => ({
+    subject_book: null,
+    class_book: null
+  }),
   computed: {
     userID() {
       return store.state.user;

@@ -23,10 +23,16 @@
       "userID": 1
     },
     {
-      "subject": "English",
+      "subject": "English Languages",
       "class": "9",
       "userID": 2,
       "id": 8
+    },
+    {
+      "subject": "Немецкий язык",
+      "class": "5",
+      "userID": 2,
+      "id": 9
     }
   ]
 }

@@ -3,10 +3,11 @@
         <form>
             <v-text-field
                 type="text"
+                label="Name"
+                required
                 v-model="user"
                 :counter="10"
-                label="Name"
-                required></v-text-field>
+            ></v-text-field>
             <v-btn @click.prevent="onSignUp">Зарегестрироваться</v-btn>
         </form>
     </div>
@@ -18,12 +19,10 @@ import store from '../store/index';
 
 export default {
   name: 'SignUp',
-  data() {
-    return {
-      user: null,
-      users: []
-    };
-  },
+  data: () => ({
+    user: null,
+    users: []
+  }),
   methods: {
     async onSignUp() {
       this.users = (await axios.get('http://localhost:3000/users')).data;
