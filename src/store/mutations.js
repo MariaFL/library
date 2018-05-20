@@ -5,7 +5,7 @@ export default {
   USER_REGISTRATION: (state, userId) => {
     state.user = userId;
   },
-  outUser(state) {
+  USER_LOGOUT(state) {
     state.user = null;
   }
 };

@@ -1,7 +1,7 @@
 <template>
     <div class="booksList">
         <v-layout row wrap>
-            <v-flex xs12 sm3 offset-xs0 offset-lg2 mt-5 v-for="book in books" :key="book.id">
+            <v-flex xs12 sm4 offset-xs0 offset-lg1 mt-5 v-for="book in books" :key="book.id">
                 <v-card>
                     <router-link :to="`/book/${book.id}`" :settings="`${book.id}`">
                         <v-card-media src="/static/doc-images/cards/desert.jpg" height="200px">

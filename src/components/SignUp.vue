@@ -36,6 +36,7 @@ export default {
           .then((responsePost) => {
             console.log(responsePost);
             store.commit('USER_REGISTRATION', responsePost.data.id);
+            this.$router.push('books-list');
           })
           .catch((error) => {
             console.log(error);

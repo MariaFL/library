@@ -33,14 +33,19 @@
         <span class="hidden-sm-and-down">Ur's Libr</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <router-link :to="{ name: 'SignIn' }">
+      <router-link :to="{ name: 'SignIn' }" v-if="!user">
         <v-btn icon>
           <v-icon>person</v-icon>
         </v-btn>
       </router-link>
-      <router-link :to="{ name: 'SignUp' }">
+      <router-link :to="{ name: 'SignUp' }" v-if="!user">
         <v-btn icon>
           <v-icon>person_add</v-icon>
+        </v-btn>
+      </router-link>
+      <router-link :to="{ name: 'SignOutWindow' }" v-if="user">
+        <v-btn icon>
+          <v-icon>meeting_room</v-icon>
         </v-btn>
       </router-link>
     </v-toolbar>
