@@ -1,16 +1,33 @@
 <template>
-    <div class="panel-signUp">
-        <v-form>
-            <v-text-field
-                    type="text"
-                    label="Name"
-                    required
-                    v-model="user"
-                    :rules="nameRules"
-            ></v-text-field>
-            <v-btn @click.prevent="onSignIn">Войти</v-btn>
-        </v-form>
-    </div>
+    <v-app id="inspire">
+        <v-content>
+            <v-container fluid fill-height>
+                <v-flex xs12 sm8 md4>
+                    <v-card class="elevation-12">
+                        <v-toolbar dark color="primary">
+                            <v-toolbar-title>Login form</v-toolbar-title>
+                            <v-spacer></v-spacer>
+                        </v-toolbar>
+                        <v-card-text class="panel-signUp">
+                            <v-form>
+                                <v-text-field
+                                        type="text"
+                                        label="Name"
+                                        required
+                                        v-model="user"
+                                        :rules="nameRules"
+                                ></v-text-field>
+                            </v-form>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="primary" @click.prevent="onSignIn">Войти</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-flex>
+            </v-container>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
