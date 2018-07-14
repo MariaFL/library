@@ -1,9 +1,9 @@
 <template>
     <v-app id="inspire">
         <v-content>
-            <v-container fluid fill-height>
-                <v-flex xs12 sm8 md4>
-                    <v-card class="elevation-12">
+            <v-container fluid fill-height justify-center @click="$emit('outClick')">
+                <v-flex xs12 sm8 md4 @click.stop>
+                    <v-card class="elevation-12" >
                         <v-toolbar dark color="primary">
                             <v-toolbar-title>Login form</v-toolbar-title>
                             <v-spacer></v-spacer>

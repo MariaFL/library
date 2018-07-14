@@ -33,23 +33,22 @@
         <span class="hidden-sm-and-down">Ur's Libr</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <router-link :to="{ name: 'SignIn' }" v-if="!user">
-        <v-btn icon>
-          <v-icon>person</v-icon>
-        </v-btn>
-      </router-link>
-      <router-link :to="{ name: 'SignUp' }" v-if="!user">
-        <v-btn icon>
-          <v-icon>person_add</v-icon>
-        </v-btn>
-      </router-link>
+      <v-btn icon v-if="!user" @click="actionSignInBtn">
+        <v-icon>person</v-icon>
+      </v-btn>
+      <v-btn icon v-if="!user" @click="actionSignUpBtn">
+        <v-icon>person_add</v-icon>
+      </v-btn>
       <router-link :to="{ name: 'SignOutWindow' }" v-if="user">
         <v-btn icon>
           <v-icon>meeting_room</v-icon>
         </v-btn>
       </router-link>
     </v-toolbar>
+    <sign-in class="modal-pop-up" v-if="pageOn === 'sign-in'" @outClick="closePopUp"></sign-in>
+    <sign-up class="modal-pop-up" v-if="pageOn === 'sign-up'" @outClick="closePopUp"></sign-up>
     <v-content>
+
       <router-view/>
     </v-content>
     <router-link :to="{ name: 'BookAdd' }" v-if="user !== null">
@@ -69,9 +68,15 @@
 
 <script>
 import store from './store/index';
+import SignIn from './components/SignIn.vue';
+import SignUp from './components/SignUp.vue';
 
 export default {
   name: 'App',
+  components: {
+    SignIn,
+    SignUp
+  },
   data: () => ({
     dialog: false,
     drawer: null,
@@ -81,7 +86,8 @@ export default {
         text: 'Books',
         to: { name: 'BooksList' }
       }
-    ]
+    ],
+    pageOn: ''
   }),
   computed: {
     user() {
@@ -90,10 +96,21 @@ export default {
   },
   props: {
     source: String
+  },
+  methods: {
+    actionSignInBtn() {
+      this.pageOn = 'sign-in';
+    },
+    actionSignUpBtn() {
+      this.pageOn = 'sign-up';
+    },
+    closePopUp() {
+      this.pageOn = '';
+    }
   }
 };
 </script>
 
 <style lang="stylus">
-  @import './assets/styles/index'
+  @import './assets/styles/index';
 </style>
