@@ -21,7 +21,6 @@
 
 <script>
 import axios from 'axios';
-import moment from 'moment';
 import store from '../store/index';
 
 export default {
@@ -38,7 +37,7 @@ export default {
   methods: {
     async newBook() {
       /* eslint-disable no-console */
-      axios.post('http://localhost:3000/books', { subject: this.subject_book, class: this.class_book, userID: this.userID, time: moment().format()})
+      axios.post('http://localhost:3000/books', { subject: this.subject_book, class: this.class_book, userID: this.userID, time: new Date() })
         .then((responsePost) => {
           console.log(responsePost);
           this.$router.push('books-list');

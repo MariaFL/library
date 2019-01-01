@@ -7,6 +7,7 @@
                 <div>
                     <h3 class="headline">{{book.subject}}</h3>
                     <h3 class="headline">{{book.class}} класс</h3>
+                    <p v-if="timeMoment">Time of creating: {{ timeMoment }}</p>
                 </div>
             </v-card-title>
             <v-card-actions v-if="userID === book.userID">
@@ -21,6 +22,7 @@
 
 <script>
 import axios from 'axios';
+import moment from 'moment';
 import store from '../store/index';
 
 export default {
@@ -30,6 +32,13 @@ export default {
   computed: {
     userID() {
       return store.state.user;
+    },
+    timeMoment() {
+      let time = 0;
+      if (this.book.time) {
+        time = moment(this.book.time).format('MMMM Do YYYY, h:mm:ss a');
+      }
+      return time;
     }
   },
   methods: {
