@@ -56,6 +56,7 @@ export default {
           console.log(`Приветствуем ${this.user}`);
           store.commit('USER_REGISTRATION', exist.id);
           this.$router.push('books-list');
+          this.$emit('outClick');
         }
       }
     }
